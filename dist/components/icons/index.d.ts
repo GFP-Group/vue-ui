@@ -1,0 +1,12 @@
+export { default as GfpPulpitIcon } from './GfpPulpitIcon.vue';
+export { default as GfpHoodIcon } from './GfpHoodIcon.vue';
+export { default as GfpPlaqueIcon } from './GfpPlaqueIcon.vue';
+export { default as GfpPulpitDraftIcon } from './GfpPulpitDraftIcon.vue';
+export { default as GfpRegaliaScanIcon } from './GfpRegaliaScanIcon.vue';
+export { default as GfpTeddyIcon } from './GfpTeddyIcon.vue';
+export { default as GfpFrameIcon } from './GfpFrameIcon.vue';
+export { default as GfpStagePhotographyIcon } from './GfpStagePhotographyIcon.vue';
+export { default as GfpStudioPhotographyIcon } from './GfpStudioPhotographyIcon.vue';
+export { default as GfpDeferCeremonyIcon } from './GfpDeferCeremonyIcon.vue';
+export { default as GfpColorsIcon } from './GfpColorsIcon.vue';
+export { default as GfpGownIcon } from './GfpGownIcon.vue';

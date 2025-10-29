@@ -1,0 +1,114 @@
+// Re-export all components for tree-shaking friendly usage
+export { default as Badge } from './components/Badge.vue'
+export { default as BlockButton } from './components/BlockButton.vue'
+export { default as Button } from './components/Button.vue'
+export { default as ButtonGroup } from './components/ButtonGroup.vue'
+export { default as Card } from './components/Card.vue'
+export { default as Checkbox } from './components/Checkbox.vue'
+export { default as DarkModeToggle } from './components/DarkModeToggle.vue'
+export { default as DateInput } from './components/DateInput.vue'
+export { default as Dialog } from './components/Dialog.vue'
+export { default as Drawer } from './components/Drawer.vue'
+export { default as Dropdown } from './components/Dropdown.vue'
+export { default as Field } from './components/Field.vue'
+export { default as Fieldset } from './components/Fieldset.vue'
+export { default as IconButton } from './components/IconButton.vue'
+export { default as Input } from './components/Input.vue'
+export { default as Link } from './components/Link.vue'
+export { default as MainNav } from './components/MainNav.vue'
+export { default as MasonaryGrid } from './components/MasonaryGrid.vue'
+export { default as Modal } from './components/Modal.vue'
+export { default as Pagination } from './components/Pagination.vue'
+export { default as RadioGroup } from './components/RadioGroup.vue'
+export { default as Select } from './components/Select.vue'
+export { default as Sidebar } from './components/Sidebar.vue'
+export { default as Spinner } from './components/Spinner.vue'
+export { default as SubHeader } from './components/SubHeader.vue'
+export { default as TabContent } from './components/TabContent.vue'
+export { default as Table } from './components/Table.vue'
+export { default as TableBody } from './components/TableBody.vue'
+export { default as TableCell } from './components/TableCell.vue'
+export { default as TableHead } from './components/TableHead.vue'
+export { default as TableHeader } from './components/TableHeader.vue'
+export { default as TableRow } from './components/TableRow.vue'
+export { default as Tabs } from './components/Tabs.vue'
+export { default as Text } from './components/Text.vue'
+
+// Icons
+export * from './components/icons'
+
+// Vue plugin for global registration
+import type { App } from 'vue'
+import Badge from './components/Badge.vue'
+import BlockButton from './components/BlockButton.vue'
+import Button from './components/Button.vue'
+import ButtonGroup from './components/ButtonGroup.vue'
+import Card from './components/Card.vue'
+import Checkbox from './components/Checkbox.vue'
+import DarkModeToggle from './components/DarkModeToggle.vue'
+import DateInput from './components/DateInput.vue'
+import Dialog from './components/Dialog.vue'
+import Drawer from './components/Drawer.vue'
+import Dropdown from './components/Dropdown.vue'
+import Field from './components/Field.vue'
+import Fieldset from './components/Fieldset.vue'
+import IconButton from './components/IconButton.vue'
+import Input from './components/Input.vue'
+import Link from './components/Link.vue'
+import MainNav from './components/MainNav.vue'
+import MasonaryGrid from './components/MasonaryGrid.vue'
+import Modal from './components/Modal.vue'
+import Pagination from './components/Pagination.vue'
+import RadioGroup from './components/RadioGroup.vue'
+import Select from './components/Select.vue'
+import Sidebar from './components/Sidebar.vue'
+import Spinner from './components/Spinner.vue'
+import SubHeader from './components/SubHeader.vue'
+import TabContent from './components/TabContent.vue'
+import Table from './components/Table.vue'
+import TableBody from './components/TableBody.vue'
+import TableCell from './components/TableCell.vue'
+import TableHead from './components/TableHead.vue'
+import TableHeader from './components/TableHeader.vue'
+import TableRow from './components/TableRow.vue'
+import Tabs from './components/Tabs.vue'
+import Text from './components/Text.vue'
+
+export default {
+  install(app: App) {
+    app.component('Badge', Badge)
+    app.component('BlockButton', BlockButton)
+    app.component('Button', Button)
+    app.component('ButtonGroup', ButtonGroup)
+    app.component('Card', Card)
+    app.component('Checkbox', Checkbox)
+    app.component('DarkModeToggle', DarkModeToggle)
+    app.component('DateInput', DateInput)
+    app.component('Dialog', Dialog)
+    app.component('Drawer', Drawer)
+    app.component('Dropdown', Dropdown)
+    app.component('Field', Field)
+    app.component('Fieldset', Fieldset)
+    app.component('IconButton', IconButton)
+    app.component('Input', Input)
+    app.component('Link', Link)
+    app.component('MainNav', MainNav)
+    app.component('MasonaryGrid', MasonaryGrid)
+    app.component('Modal', Modal)
+    app.component('Pagination', Pagination)
+    app.component('RadioGroup', RadioGroup)
+    app.component('Select', Select)
+    app.component('Sidebar', Sidebar)
+    app.component('Spinner', Spinner)
+    app.component('SubHeader', SubHeader)
+    app.component('TabContent', TabContent)
+    app.component('Table', Table)
+    app.component('TableBody', TableBody)
+    app.component('TableCell', TableCell)
+    app.component('TableHead', TableHead)
+    app.component('TableHeader', TableHeader)
+    app.component('TableRow', TableRow)
+    app.component('Tabs', Tabs)
+    app.component('Text', Text)
+  },
+}

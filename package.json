@@ -1,0 +1,78 @@
+{
+  "name": "@gfp/vue-ui",
+  "version": "1.3.2",
+  "author": "Zero41",
+  "private": true,
+  "description": "Vue 3 UI components built for GFP by Zero41.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zero41/gfp-vue-ui.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./tailwind-preset": "./tailwind-preset.js",
+    "./styles.css": "./styles.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "tailwind-preset.js",
+    "styles.css"
+  ],
+  "sideEffects": [
+    "styles.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --project tsconfig.build.json --noEmitOnError false || true",
+    "type-checks": "vue-tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "peerDependencies": {
+    "tailgrids": "^2.3.0",
+    "tailwindcss": "^4.0.0",
+    "vue": "^3.4.0",
+    "vue-icons-plus": "^0.1.8"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    },
+    "vue-icons-plus": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.5.0",
+    "prettier": "^3.6.2",
+    "tailgrids": "^2.3.0",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.45.0",
+    "vite": "^5.4.0",
+    "vue": "^3.4.0",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-icons-plus": "^0.1.8",
+    "vue-tsc": "^2.0.29"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "license": "UNLICENSED"
+}

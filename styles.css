@@ -1,0 +1,52 @@
+/* Import this in the consumer app entry css AFTER @import 'tailwindcss':
+   @import 'tailwindcss';
+   @import '@gsa/vue-ui/styles.css';
+*/
+
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin 'tailgrids/plugin';
+
+@theme {
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.05);
+  --color-primary: #168ac9;
+  --color-black: #000000;
+  --color-dark: #111929;
+  --color-dark-darker: #0d131f;
+  --color-dark-2: #1f2a38;
+  --color-dark-3: #253242;
+  --color-dark-4: #303238;
+  --color-faint: #f5f7f9;
+  --color-faint-blue: #f4fdff;
+  --color-gray-2.5: #edeef0;
+  --color-purple: #a348f6;
+}
+
+@layer base {
+  .dark {
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.9);
+  }
+}
+
+@layer components {
+  .bg-faint {
+    background-color: var(--color-faint);
+  }
+  .bg-faint-blue {
+    background-color: var(--color-faint-blue);
+  }
+  .text-dark {
+    color: var(--color-dark);
+  }
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+}

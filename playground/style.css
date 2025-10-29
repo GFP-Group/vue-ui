@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Tell Tailwind where to scan for classes */
+@source './playground/**/*.{vue,js,ts,jsx,tsx}';
+@source './src/**/*.{vue,js,ts,jsx,tsx}';
+
+/* Import GFP custom styles */
+@import '../styles.css';
