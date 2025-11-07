@@ -5,12 +5,15 @@ import { Fa6Check } from 'vue-icons-plus/fa6'
 const props = withDefaults(
   defineProps<{
     label?: string
-    modelValue?: boolean
+    modelValue?: any 
     checked?: boolean
     id?: string
     name?: string
     disabled?: boolean
     className?: string
+    value?: any
+    trueValue?: any
+    falseValue?: any
     onChange?: (checked: boolean, ev: Event) => void
   }>(),
   {
@@ -18,13 +21,16 @@ const props = withDefaults(
     modelValue: undefined,
     checked: undefined,
     disabled: false,
+    value: true, 
+    trueValue: true,
+    falseValue: false,
   }
 )
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
+  (e: 'update:modelValue', value: any): void
   (e: 'update:checked', value: boolean): void
-  (e: 'change', value: boolean, ev: Event): void
+  (e: 'change', value: any, ev: Event): void
 }>()
 
 const generatedId = `cb_${Math.random().toString(36).slice(2, 9)}`
@@ -34,12 +40,39 @@ const isControlled = computed(() => props.modelValue !== undefined || props.chec
 
 const isChecked = computed<boolean>({
   get() {
-    if (props.modelValue !== undefined) return !!props.modelValue
+    if (Array.isArray(props.modelValue)) {
+      return props.modelValue.includes(props.value)
+    }
+    if (props.modelValue !== undefined) {
+      return props.modelValue === props.trueValue
+    }
+    
     if (props.checked !== undefined) return !!props.checked
     return false
   },
   set(val: boolean) {
-    emit('update:modelValue', val)
+    let newValue: any;
+
+    if (Array.isArray(props.modelValue)) {
+      const index = props.modelValue.indexOf(props.value);
+      if (val) {
+        if (index === -1) {
+          newValue = [...props.modelValue, props.value];
+        } else {
+          newValue = props.modelValue;
+        }
+      } else {
+        if (index > -1) {
+          newValue = [...props.modelValue.slice(0, index), ...props.modelValue.slice(index + 1)];
+        } else {
+          newValue = props.modelValue;
+        }
+      }
+    } else {
+      newValue = val ? props.trueValue : props.falseValue;
+    }
+
+    emit('update:modelValue', newValue)
     emit('update:checked', val)
   },
 })
@@ -47,29 +80,11 @@ const isChecked = computed<boolean>({
 const handleChange = (ev: Event) => {
   const target = ev.target as HTMLInputElement
   const val = target.checked
-  if (!isControlled.value) {
-    // Prevent uncontrolled toggling
-    target.checked = isChecked.value
-    ev.preventDefault()
-    return
-  }
-  isChecked.value = val
-  emit('change', val, ev)
-  props.onChange?.(val, ev)
-}
 
-const handleClick = (ev: MouseEvent) => {
-  if (!isControlled.value) {
-    ev.preventDefault()
-    ev.stopPropagation()
-  }
-}
-
-const handleKeydown = (ev: KeyboardEvent) => {
-  if (!isControlled.value && (ev.key === ' ' || ev.key === 'Spacebar' || ev.key === 'Enter')) {
-    ev.preventDefault()
-    ev.stopPropagation()
-  }
+  isChecked.value = val 
+  
+  emit('change', isChecked.value, ev) 
+  props.onChange?.(isChecked.value, ev)
 }
 </script>
 
@@ -87,9 +102,10 @@ const handleKeydown = (ev: KeyboardEvent) => {
         :name="props.name"
         :checked="isChecked"
         :disabled="props.disabled"
+        :value="props.value"
+        :true-value="props.trueValue"
+        :false-value="props.falseValue"
         @change="handleChange"
-        @click="handleClick"
-        @keydown="handleKeydown"
       />
       <div
         class="flex items-center justify-center w-5 h-5 mr-3 border rounded-[5px] transition dark:border-gray-500"
